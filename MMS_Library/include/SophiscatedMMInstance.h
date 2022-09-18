@@ -31,7 +31,7 @@ namespace MMS
         }
         void setInit(std::function<void(void **)> _init);
         void * getWmem() const;
-    private:
+    protected:
         static std::function<void(void **)> init;
         static void *wmem;
     };
