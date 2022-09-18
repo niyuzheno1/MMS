@@ -21,8 +21,8 @@ file(GLOB_RECURSE  MMS_SOURCE_FILES
 add_subdirectory(MMS_Library)
 list(APPEND EXTRA_LIBS MMS_Library)
 
-add_executable(FileSerializationPrototype ${MMS_SOURCE_FILES})
-target_include_directories(FileSerializationPrototype PUBLIC "${MMS_HEADER_DIR}")
-target_include_directories(FileSerializationPrototype PUBLIC "${MMS_EXPORT_HEADER_DIR}")
-target_link_libraries(FileSerializationPrototype ${EXTRA_LIBS})
-target_include_directories(FileSerializationPrototype PUBLIC ${PROJECT_BINARY_DIR}/include)
+add_executable(MMS ${MMS_SOURCE_FILES})
+target_include_directories(MMS PUBLIC "${MMS_HEADER_DIR}")
+target_include_directories(MMS PUBLIC "${MMS_EXPORT_HEADER_DIR}")
+target_link_libraries(MMS ${EXTRA_LIBS})
+target_include_directories(MMS PUBLIC ${PROJECT_BINARY_DIR}/include)
