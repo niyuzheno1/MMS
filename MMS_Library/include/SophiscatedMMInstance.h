@@ -30,9 +30,9 @@ namespace MMS
             (*mem) = ((*arr) + x);
         }
         void setInit(std::function<void(void **)> _init);
+        void * getWmem() const;
     private:
         static std::function<void(void **)> init;
-        // working memory
         static void *wmem;
     };
 }

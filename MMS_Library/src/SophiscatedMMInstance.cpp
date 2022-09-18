@@ -50,3 +50,7 @@ void SophiscatedMMInstance::memInit() {
 void SophiscatedMMInstance::setInit(std::function<void(void **)> _init){
     init = _init;
 }
+
+void * SophiscatedMMInstance::getWmem() const{
+    return wmem;
+}
