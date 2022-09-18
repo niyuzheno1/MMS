@@ -10,13 +10,13 @@ namespace MMS
     public:
         SophiscatedMMInstance();
         ~SophiscatedMMInstance();
-        void *allocate(size_t size) override;
-        void *reallocate(void *pointer, size_t oldSize, size_t size) override;
-        void *reallocate(void *pointer, size_t baseTypeSize, size_t oldSize, size_t newSize) override;
-        void deallocate(void **pointer, size_t size) override;
-        void deallocate(void **pointer, size_t baseTypeSize, size_t size) override;
-        void setWorkingMemory(void *memory);
-        void memInit() override;
+        virtual void *allocate(size_t size);
+        virtual void *reallocate(void *pointer, size_t oldSize, size_t size);
+        virtual void *reallocate(void *pointer, size_t baseTypeSize, size_t oldSize, size_t newSize);
+        virtual void deallocate(void **pointer, size_t size) ;
+        virtual void deallocate(void **pointer, size_t baseTypeSize, size_t size) ;
+        virtual void setWorkingMemory(void *memory);
+        virtual void memInit() ;
         template <class T>
         static void walloc1d(T **arr, int x, void **mem = &wmem)
         {
@@ -29,8 +29,8 @@ namespace MMS
             (*arr) = (T *)(*mem);
             (*mem) = ((*arr) + x);
         }
-        void setInit(std::function<void(void **)> _init);
-        void * getWmem() const;
+        virtual void setInit(std::function<void(void **)> _init);
+        virtual void * getWmem() const;
     protected:
         static std::function<void(void **)> init;
         static void *wmem;
